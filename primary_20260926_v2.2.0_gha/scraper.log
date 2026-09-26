@@ -1081,3 +1081,5 @@
 [2026-09-27 02:20:11]   Processed: 343 / 343 | Valid: 308 | No store: 35 | Failed: 0 | Skipped: 0 | Elapsed: 04:59:54
 [2026-09-27 02:20:11] --- pass complete in 20.2 min ---
 [2026-09-27 02:20:11]   export -> ASSIGNMENT_DATASET_cycle1_20260926: 1274 rows, coverage 1274/1274 (100.0%), errors 0
+[2026-09-27 02:20:13]   pass hook exit 0: pushed primary_20260926_v2.2.0_gha slot 2026-09-27 02:00
+[2026-09-27 02:20:13]   export -> ASSIGNMENT_DATASET_cycle1_20260926: 1274 rows, coverage 1274/1274 (100.0%), errors 0
