@@ -1,0 +1,64 @@
+{
+  "run_id": "primary_test_20260926_v2.2.0_gha",
+  "study": "primary",
+  "started": "2026-09-26 11:41:06",
+  "timezone": "Australia/Adelaide",
+  "tz_offset": "+0930",
+  "collector_version": "2.2.0",
+  "collector_sha256": "6c5725327dff3657ecd945b86bb39719c6f6fd258bfb68500d2343f612962888",
+  "python": "3.12.14",
+  "playwright": "1.63.0",
+  "platform": "linux",
+  "github_run": {
+    "GITHUB_RUN_ID": "36210820184",
+    "GITHUB_RUN_ATTEMPT": "1",
+    "GITHUB_JOB": "collect",
+    "GITHUB_SHA": "d5e365c9db33adf74b615fab4636062b5a237759"
+  },
+  "mode": "test",
+  "cycle_date": null,
+  "slot_indices": [],
+  "slots": [],
+  "products": {
+    "s26": [
+      "Samsung Galaxy S26 5G 256GB",
+      "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet"
+    ]
+  },
+  "postcodes": {
+    "5022": [
+      "Grange",
+      "SA",
+      "metro fringe",
+      1
+    ],
+    "5000": [
+      "Adelaide",
+      "SA",
+      "metro core",
+      1
+    ],
+    "5700": [
+      "Port Augusta",
+      "SA",
+      "regional",
+      1
+    ]
+  },
+  "retry": {
+    "max_attempts": 3,
+    "backoff_s": [
+      20,
+      60
+    ],
+    "rate_limit_backoff_s": [
+      120,
+      300
+    ],
+    "max_consecutive_errors": 6
+  },
+  "delay_s": [
+    5.0,
+    10.0
+  ]
+}
