@@ -1,0 +1,163 @@
+[2026-09-26 11:44:02] collector v2.2.0  run primary_20260926_v2.2.0_gha  study primary
+[2026-09-26 11:44:02] clock  : Australia/Adelaide (+0930)
+[2026-09-26 11:44:02] design : 49 postcode(s) x 1 product(s) x 9 slot(s) = 441 observation(s)
+[2026-09-26 11:44:02] out    : data/primary/primary_20260926_v2.2.0_gha  (resume: 0 already recorded)
+[2026-09-26 11:44:02] manifest: data/primary/primary_20260926_v2.2.0_gha/manifest_primary_20260926_v2.2.0_gha_114402.json
+[2026-09-26 11:44:03] ##### CYCLE 1/1: Saturday 26 Sep 2026 run primary_20260926_v2.2.0_gha #####
+[2026-09-26 11:44:03] cycle 2026-09-26 (primary): running slot index(es) 0-8: 26 Sep 12:00 .. 26 Sep 16:00
+[2026-09-26 11:44:03] waiting 15.9 min for slot 26 Sep 12:00
+[2026-09-26 12:00:00] === SLOT 0 2026-09-26 12:00 ===
+[2026-09-26 12:00:00] !! relaunching browser: browser not live at slot start (restart #1)
+[2026-09-26 12:00:00] browser launched (chromium, headless)
+[2026-09-26 12:00:00] --- pass: 49 postcode(s) x 1 product(s) = 49 observation(s), slot 2026-09-26 12:00 ---
+[2026-09-26 12:00:00] 2000 Sydney [s26] ...
+[2026-09-26 12:00:16]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:00:16]   Processed: 1 / 441 | Valid: 1 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:16:14
+[2026-09-26 12:00:24] 2060 North Sydney [s26] ...
+[2026-09-26 12:00:41]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:00:41]   Processed: 2 / 441 | Valid: 2 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:16:39
+[2026-09-26 12:00:47] 2170 Liverpool [s26] ...
+[2026-09-26 12:01:04]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:01:04]   Processed: 3 / 441 | Valid: 3 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:17:01
+[2026-09-26 12:01:10] 2750 Penrith [s26] ...
+[2026-09-26 12:01:27]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:01:27]   Processed: 4 / 441 | Valid: 4 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:17:25
+[2026-09-26 12:01:35] 2300 Newcastle [s26] ...
+[2026-09-26 12:01:52]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 2 October' $6.99
+[2026-09-26 12:01:52]   Processed: 5 / 441 | Valid: 5 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:17:49
+[2026-09-26 12:02:01] 2650 Wagga Wagga [s26] ...
+[2026-09-26 12:02:17]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:02:17]   Processed: 6 / 441 | Valid: 6 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:18:15
+[2026-09-26 12:02:23] 2480 Lismore [s26] ...
+[2026-09-26 12:02:41]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:02:41]   Processed: 7 / 441 | Valid: 7 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:18:39
+[2026-09-26 12:02:47] 3000 Melbourne [s26] ...
+[2026-09-26 12:03:05]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:03:05]   Processed: 8 / 441 | Valid: 8 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:19:02
+[2026-09-26 12:03:13] 3121 Richmond [s26] ...
+[2026-09-26 12:03:30]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:03:30]   Processed: 9 / 441 | Valid: 9 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:19:28
+[2026-09-26 12:03:39] 3030 Point Cook [s26] ...
+[2026-09-26 12:03:56]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:03:56]   Processed: 10 / 441 | Valid: 10 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:19:53
+[2026-09-26 12:04:04] 3175 Dandenong [s26] ...
+[2026-09-26 12:04:20]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:04:20]   Processed: 11 / 441 | Valid: 11 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:20:18
+[2026-09-26 12:04:28] 3220 Geelong [s26] ...
+[2026-09-26 12:04:45]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:04:45]   Processed: 12 / 441 | Valid: 12 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:20:42
+[2026-09-26 12:04:50] 3550 Bendigo [s26] ...
+[2026-09-26 12:05:07]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:05:07]   Processed: 13 / 441 | Valid: 13 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:21:04
+[2026-09-26 12:05:14] 3350 Ballarat [s26] ...
+[2026-09-26 12:05:32]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 1 October' $5.99
+[2026-09-26 12:05:32]   Processed: 14 / 441 | Valid: 14 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:21:29
+[2026-09-26 12:05:37] 4000 Brisbane City [s26] ...
+[2026-09-26 12:05:54]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:05:54]   Processed: 15 / 441 | Valid: 15 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:21:51
+[2026-09-26 12:06:00] 4006 Fortitude Valley [s26] ...
+[2026-09-26 12:06:17]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:06:17]   Processed: 16 / 441 | Valid: 16 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:22:14
+[2026-09-26 12:06:22] 4300 Springfield [s26] ...
+[2026-09-26 12:06:38]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:06:38]   Processed: 17 / 441 | Valid: 17 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:22:35
+[2026-09-26 12:06:47] 4178 Wynnum [s26] ...
+[2026-09-26 12:07:04]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:07:04]   Processed: 18 / 441 | Valid: 18 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:23:01
+[2026-09-26 12:07:13] 4350 Toowoomba City [s26] ...
+[2026-09-26 12:07:30]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:07:30]   Processed: 19 / 441 | Valid: 19 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:23:27
+[2026-09-26 12:07:37] 4740 Mackay [s26] ...
+[2026-09-26 12:07:53]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:07:53]   Processed: 20 / 441 | Valid: 20 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:23:50
+[2026-09-26 12:08:02] 4870 Cairns [s26] ...
+[2026-09-26 12:08:18]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:08:18]   Processed: 21 / 441 | Valid: 21 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:24:15
+[2026-09-26 12:08:25] 5000 Adelaide [s26] ...
+[2026-09-26 12:08:42]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:08:42]   Processed: 22 / 441 | Valid: 22 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:24:39
+[2026-09-26 12:08:48] 5067 Norwood [s26] ...
+[2026-09-26 12:09:05]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:09:05]   Processed: 23 / 441 | Valid: 23 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:25:03
+[2026-09-26 12:09:13] 5034 Millswood [s26] ...
+[2026-09-26 12:09:29]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:09:29]   Processed: 24 / 441 | Valid: 24 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:25:26
+[2026-09-26 12:09:36] 5022 Grange [s26] ...
+[2026-09-26 12:09:51]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:09:51]   Processed: 25 / 441 | Valid: 25 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:25:49
+[2026-09-26 12:09:58] 5108 Salisbury [s26] ...
+[2026-09-26 12:10:16]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:10:16]   Processed: 26 / 441 | Valid: 26 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:26:13
+[2026-09-26 12:10:26] 5162 Morphett Vale [s26] ...
+[2026-09-26 12:10:43]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:10:43]   Processed: 27 / 441 | Valid: 27 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:26:40
+[2026-09-26 12:10:52] 5095 Mawson Lakes [s26] ...
+[2026-09-26 12:11:09]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:11:09]   Processed: 28 / 441 | Valid: 28 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:27:06
+[2026-09-26 12:11:14] 5114 Smithfield [s26] ...
+[2026-09-26 12:11:34]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:11:34]   Processed: 29 / 441 | Valid: 29 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:27:31
+[2026-09-26 12:11:40] 5251 Mount Barker [s26] ...
+[2026-09-26 12:11:56]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:11:56]   Processed: 30 / 441 | Valid: 30 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:27:54
+[2026-09-26 12:12:06] 5290 Mount Gambier [s26] ...
+[2026-09-26 12:12:23]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:12:23]   Processed: 31 / 441 | Valid: 31 | No store: 0 | Failed: 0 | Skipped: 0 | Elapsed: 00:28:20
+[2026-09-26 12:12:30] 5700 Port Augusta [s26] ...
+[2026-09-26 12:12:43]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-26 12:12:43]   Processed: 32 / 441 | Valid: 31 | No store: 1 | Failed: 0 | Skipped: 0 | Elapsed: 00:28:41
+[2026-09-26 12:12:53] 5606 Port Lincoln [s26] ...
+[2026-09-26 12:13:05]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-26 12:13:05]   Processed: 33 / 441 | Valid: 31 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:29:02
+[2026-09-26 12:13:13] 6000 Perth [s26] ...
+[2026-09-26 12:13:30]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:13:30]   Processed: 34 / 441 | Valid: 32 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:29:27
+[2026-09-26 12:13:39] 6008 Subiaco [s26] ...
+[2026-09-26 12:14:39]   attempt 1 failed [timeout]: Page.goto: Timeout 60000ms exceeded.
+[2026-09-26 12:14:39]   retrying in 20s
+[2026-09-26 12:15:16]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:15:16]   Processed: 35 / 441 | Valid: 33 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:31:14
+[2026-09-26 12:15:22] 6164 Success [s26] ...
+[2026-09-26 12:15:41]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:15:41]   Processed: 36 / 441 | Valid: 34 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:31:38
+[2026-09-26 12:15:46] 6030 Clarkson [s26] ...
+[2026-09-26 12:16:04]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 28 September' $6.99
+[2026-09-26 12:16:04]   Processed: 37 / 441 | Valid: 35 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:32:01
+[2026-09-26 12:16:13] 6230 Bunbury [s26] ...
+[2026-09-26 12:16:30]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:16:30]   Processed: 38 / 441 | Valid: 36 | No store: 2 | Failed: 0 | Skipped: 0 | Elapsed: 00:32:27
+[2026-09-26 12:16:39] 6430 Kalgoorlie [s26] ...
+[2026-09-26 12:16:52]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-26 12:16:52]   Processed: 39 / 441 | Valid: 36 | No store: 3 | Failed: 0 | Skipped: 0 | Elapsed: 00:32:49
+[2026-09-26 12:17:01] 6530 Geraldton [s26] ...
+[2026-09-26 12:17:15]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-26 12:17:15]   Processed: 40 / 441 | Valid: 36 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:33:13
+[2026-09-26 12:17:21] 7000 Hobart [s26] ...
+[2026-09-26 12:17:38]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 30 September' $6.99
+[2026-09-26 12:17:38]   Processed: 41 / 441 | Valid: 37 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:33:36
+[2026-09-26 12:17:46] 7010 Glenorchy [s26] ...
+[2026-09-26 12:18:03]   ON_DEMAND_SCHEDULED | promise='Delivered within 2 hours' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-26 12:18:03]   Processed: 42 / 441 | Valid: 38 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:34:00
+[2026-09-26 12:18:10] 7250 Launceston [s26] ...
+[2026-09-26 12:18:28]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 30 September' $6.99
+[2026-09-26 12:18:28]   Processed: 43 / 441 | Valid: 39 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:34:25
+[2026-09-26 12:18:35] 7320 Burnie [s26] ...
+[2026-09-26 12:18:52]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 30 September' $6.99 | notes: No on-demand option offered
+[2026-09-26 12:18:52]   Processed: 44 / 441 | Valid: 40 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:34:49
+[2026-09-26 12:18:57] 2601 Canberra [s26] ...
+[2026-09-26 12:19:14]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-26 12:19:14]   Processed: 45 / 441 | Valid: 41 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:35:11
+[2026-09-26 12:19:22] 2900 Greenway [s26] ...
+[2026-09-26 12:19:39]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-26 12:19:39]   Processed: 46 / 441 | Valid: 42 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:35:36
+[2026-09-26 12:19:47] 0800 Darwin City [s26] ...
+[2026-09-26 12:20:04]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:20:04]   Processed: 47 / 441 | Valid: 43 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:36:01
+[2026-09-26 12:20:11] 0810 Casuarina [s26] ...
+[2026-09-26 12:20:29]   ON_DEMAND_ASAP | promise='Delivered within 90 minutes' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-26 12:20:29]   Processed: 48 / 441 | Valid: 44 | No store: 4 | Failed: 0 | Skipped: 0 | Elapsed: 00:36:26
+[2026-09-26 12:20:35] 0870 Alice Springs [s26] ...
+[2026-09-26 12:20:49]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-26 12:20:49]   Processed: 49 / 441 | Valid: 44 | No store: 5 | Failed: 0 | Skipped: 0 | Elapsed: 00:36:46
+[2026-09-26 12:20:49] --- pass complete in 20.8 min ---
+[2026-09-26 12:20:49]   export -> ASSIGNMENT_DATASET_cycle1_20260926: 49 rows, coverage 49/49 (100.0%), errors 0

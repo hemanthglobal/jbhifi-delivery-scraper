@@ -1,0 +1,360 @@
+{
+  "run_id": "primary_20260926_v2.2.0_gha",
+  "study": "primary",
+  "started": "2026-09-26 11:44:02",
+  "timezone": "Australia/Adelaide",
+  "tz_offset": "+0930",
+  "collector_version": "2.2.0",
+  "collector_sha256": "6c5725327dff3657ecd945b86bb39719c6f6fd258bfb68500d2343f612962888",
+  "python": "3.12.14",
+  "playwright": "1.63.0",
+  "platform": "linux",
+  "github_run": {
+    "GITHUB_RUN_ID": "36210992016",
+    "GITHUB_RUN_ATTEMPT": "1",
+    "GITHUB_JOB": "collect",
+    "GITHUB_SHA": "d5e365c9db33adf74b615fab4636062b5a237759"
+  },
+  "mode": "schedule",
+  "cycle_date": "2026-09-26",
+  "slot_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "slots": [
+    "2026-09-26 12:00",
+    "2026-09-26 12:30",
+    "2026-09-26 13:00",
+    "2026-09-26 13:30",
+    "2026-09-26 14:00",
+    "2026-09-26 14:30",
+    "2026-09-26 15:00",
+    "2026-09-26 15:30",
+    "2026-09-26 16:00"
+  ],
+  "products": {
+    "s26": [
+      "Samsung Galaxy S26 5G 256GB",
+      "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet"
+    ]
+  },
+  "postcodes": {
+    "2000": [
+      "Sydney",
+      "NSW",
+      "metro core",
+      1
+    ],
+    "2060": [
+      "North Sydney",
+      "NSW",
+      "metro core",
+      2
+    ],
+    "2170": [
+      "Liverpool",
+      "NSW",
+      "metro fringe",
+      1
+    ],
+    "2750": [
+      "Penrith",
+      "NSW",
+      "metro fringe",
+      2
+    ],
+    "2300": [
+      "Newcastle",
+      "NSW",
+      "regional",
+      2
+    ],
+    "2650": [
+      "Wagga Wagga",
+      "NSW",
+      "regional",
+      1
+    ],
+    "2480": [
+      "Lismore",
+      "NSW",
+      "regional",
+      2
+    ],
+    "3000": [
+      "Melbourne",
+      "VIC",
+      "metro core",
+      1
+    ],
+    "3121": [
+      "Richmond",
+      "VIC",
+      "metro core",
+      2
+    ],
+    "3030": [
+      "Point Cook",
+      "VIC",
+      "metro fringe",
+      1
+    ],
+    "3175": [
+      "Dandenong",
+      "VIC",
+      "metro fringe",
+      2
+    ],
+    "3220": [
+      "Geelong",
+      "VIC",
+      "regional",
+      2
+    ],
+    "3550": [
+      "Bendigo",
+      "VIC",
+      "regional",
+      1
+    ],
+    "3350": [
+      "Ballarat",
+      "VIC",
+      "regional",
+      2
+    ],
+    "4000": [
+      "Brisbane City",
+      "QLD",
+      "metro core",
+      1
+    ],
+    "4006": [
+      "Fortitude Valley",
+      "QLD",
+      "metro core",
+      2
+    ],
+    "4300": [
+      "Springfield",
+      "QLD",
+      "metro fringe",
+      1
+    ],
+    "4178": [
+      "Wynnum",
+      "QLD",
+      "metro fringe",
+      2
+    ],
+    "4350": [
+      "Toowoomba City",
+      "QLD",
+      "regional",
+      1
+    ],
+    "4740": [
+      "Mackay",
+      "QLD",
+      "regional",
+      2
+    ],
+    "4870": [
+      "Cairns",
+      "QLD",
+      "regional",
+      2
+    ],
+    "5000": [
+      "Adelaide",
+      "SA",
+      "metro core",
+      1
+    ],
+    "5067": [
+      "Norwood",
+      "SA",
+      "metro core",
+      1
+    ],
+    "5034": [
+      "Millswood",
+      "SA",
+      "metro core",
+      2
+    ],
+    "5022": [
+      "Grange",
+      "SA",
+      "metro fringe",
+      1
+    ],
+    "5108": [
+      "Salisbury",
+      "SA",
+      "metro fringe",
+      1
+    ],
+    "5162": [
+      "Morphett Vale",
+      "SA",
+      "metro fringe",
+      2
+    ],
+    "5095": [
+      "Mawson Lakes",
+      "SA",
+      "metro fringe",
+      2
+    ],
+    "5114": [
+      "Smithfield",
+      "SA",
+      "outer metro",
+      1
+    ],
+    "5251": [
+      "Mount Barker",
+      "SA",
+      "outer metro",
+      2
+    ],
+    "5290": [
+      "Mount Gambier",
+      "SA",
+      "regional",
+      1
+    ],
+    "5700": [
+      "Port Augusta",
+      "SA",
+      "regional",
+      1
+    ],
+    "5606": [
+      "Port Lincoln",
+      "SA",
+      "regional",
+      2
+    ],
+    "6000": [
+      "Perth",
+      "WA",
+      "metro core",
+      1
+    ],
+    "6008": [
+      "Subiaco",
+      "WA",
+      "metro core",
+      2
+    ],
+    "6164": [
+      "Success",
+      "WA",
+      "metro fringe",
+      1
+    ],
+    "6030": [
+      "Clarkson",
+      "WA",
+      "metro fringe",
+      2
+    ],
+    "6230": [
+      "Bunbury",
+      "WA",
+      "regional",
+      1
+    ],
+    "6430": [
+      "Kalgoorlie",
+      "WA",
+      "regional",
+      2
+    ],
+    "6530": [
+      "Geraldton",
+      "WA",
+      "regional",
+      2
+    ],
+    "7000": [
+      "Hobart",
+      "TAS",
+      "metro core",
+      1
+    ],
+    "7010": [
+      "Glenorchy",
+      "TAS",
+      "metro fringe",
+      2
+    ],
+    "7250": [
+      "Launceston",
+      "TAS",
+      "regional",
+      1
+    ],
+    "7320": [
+      "Burnie",
+      "TAS",
+      "regional",
+      2
+    ],
+    "2601": [
+      "Canberra",
+      "ACT",
+      "metro core",
+      1
+    ],
+    "2900": [
+      "Greenway",
+      "ACT",
+      "metro fringe",
+      2
+    ],
+    "0800": [
+      "Darwin City",
+      "NT",
+      "metro core",
+      1
+    ],
+    "0810": [
+      "Casuarina",
+      "NT",
+      "metro fringe",
+      2
+    ],
+    "0870": [
+      "Alice Springs",
+      "NT",
+      "regional",
+      2
+    ]
+  },
+  "retry": {
+    "max_attempts": 3,
+    "backoff_s": [
+      20,
+      60
+    ],
+    "rate_limit_backoff_s": [
+      120,
+      300
+    ],
+    "max_consecutive_errors": 6
+  },
+  "delay_s": [
+    5.0,
+    10.0
+  ]
+}
