@@ -152,10 +152,12 @@ def main():
               "", "## Manifests", "", "| Artifact | File | run_id | version | SHA-256 | started | commit |",
               "|---|---|---|---|---|---|---|"]
     lines += [f"| {' | '.join(str(x) for x in m)} |" for m in mans]
-    (out / "README_EVIDENCE.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (out / "README_EVIDENCE.md").write_text("\n".join(lines) + "\n", encoding="utf-8",
+                                            newline="\n")
     sums = [f"{sha256(p)}  {p.relative_to(out).as_posix()}"
             for p in sorted(out.rglob("*")) if p.is_file() and p.name != "SHA256SUMS.txt"]
-    (out / "SHA256SUMS.txt").write_text("\n".join(sums) + "\n", encoding="utf-8")
+    (out / "SHA256SUMS.txt").write_text("\n".join(sums) + "\n", encoding="utf-8",
+                                        newline="\n")
     print("\n".join(lines[:22]))
     print(f"{len(sums)} files checksummed")
 
