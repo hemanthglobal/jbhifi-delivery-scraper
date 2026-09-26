@@ -1,4 +1,4 @@
-STATUS: IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:39. Refresh after the next pass.
+STATUS: IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:41. Refresh after the next pass.
 
 # Data quality: primary study, cycle 2026-09-26 (primary_20260926_v2.2.0_gha)
 
@@ -16,7 +16,7 @@ STATUS: IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot
 | http_errors (5xx/403/429) | 0 |
 | timeouts | 0 |
 | rows_needing_retry | 5 |
-| status | IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:39. Refresh after the next pass. |
+| status | IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:41. Refresh after the next pass. |
 | run_id | primary_20260926_v2.2.0_gha |
 
 ## states
