@@ -1,30 +1,30 @@
-STATUS: IN PROGRESS - 8 of 40 slots due so far (last 2026-09-26 15:30). Snapshot 2026-09-26 15:49:49. Refresh after the next pass.
+STATUS: IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:39. Refresh after the next pass.
 
 # Data quality: primary study, cycle 2026-09-26 (primary_20260926_v2.2.0_gha)
 
 | Measure | Value |
 |---|---|
-| total_observations_attempted | 392 |
-| rows_after_dedup | 392 |
-| successful_requests | 392 |
-| valid_results_uber_offered | 312 |
-| no_uber_but_other_delivery (ON_DEMAND_UNAVAILABLE) | 40 |
-| no_availability_no_store (NO_STORE_REPORTED) | 40 |
+| total_observations_attempted | 441 |
+| rows_after_dedup | 441 |
+| successful_requests | 441 |
+| valid_results_uber_offered | 351 |
+| no_uber_but_other_delivery (ON_DEMAND_UNAVAILABLE) | 45 |
+| no_availability_no_store (NO_STORE_REPORTED) | 45 |
 | failed_requests (COLLECTION_ERROR) | 0 |
 | duplicate_records_removed | 0 |
 | conflicting_duplicates | 0 |
 | http_errors (5xx/403/429) | 0 |
 | timeouts | 0 |
 | rows_needing_retry | 5 |
-| status | IN PROGRESS - 8 of 40 slots due so far (last 2026-09-26 15:30). Snapshot 2026-09-26 15:49:49. Refresh after the next pass. |
+| status | IN PROGRESS - 9 of 40 slots due so far (last 2026-09-26 16:00). Snapshot 2026-09-26 16:19:39. Refresh after the next pass. |
 | run_id | primary_20260926_v2.2.0_gha |
 
 ## states
 
-- ON_DEMAND_ASAP: 191
-- NO_STORE_REPORTED: 40
-- ON_DEMAND_SCHEDULED: 121
-- ON_DEMAND_UNAVAILABLE: 40
+- ON_DEMAND_ASAP: 195
+- NO_STORE_REPORTED: 45
+- ON_DEMAND_SCHEDULED: 156
+- ON_DEMAND_UNAVAILABLE: 45
 
 ## error_types
 
@@ -32,7 +32,7 @@ STATUS: IN PROGRESS - 8 of 40 slots due so far (last 2026-09-26 15:30). Snapshot
 
 ## uber_detection_rules
 
-- logo-alt: 312
+- logo-alt: 351
 
 ## review_flags
 
@@ -40,14 +40,14 @@ STATUS: IN PROGRESS - 8 of 40 slots due so far (last 2026-09-26 15:30). Snapshot
 
 ## missing_values_in_measured_rows
 
-- promise_text_verbatim: 80
-- ondemand_price_aud: 80
-- standard_promise_text: 40
-- standard_price_aud: 40
-- notes: 256
-- ondemand_detected_by: 80
-- error_type: 392
-- review_flag: 392
+- promise_text_verbatim: 90
+- ondemand_price_aud: 90
+- standard_promise_text: 45
+- standard_price_aud: 45
+- notes: 288
+- ondemand_detected_by: 90
+- error_type: 441
+- review_flag: 441
 
 ## unexpected_missing
 
@@ -57,15 +57,15 @@ STATUS: IN PROGRESS - 8 of 40 slots due so far (last 2026-09-26 15:30). Snapshot
 
 ## coverage
 
-- slots: 8
+- slots: 9
 - first_slot: 2026-09-26 12:00
-- last_slot: 2026-09-26 15:30
+- last_slot: 2026-09-26 16:00
 - postcodes: 49
 - products: ['s26']
-- expected_cells: 392
-- observed_cells: 392
+- expected_cells: 441
+- observed_cells: 441
 - coverage_pct: 100.0
-- expected_slots_so_far: 8
+- expected_slots_so_far: 9
 - missing_cells: 0
 - slots_with_no_rows: []
 
