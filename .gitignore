@@ -1,0 +1,23 @@
+# collected data stays out of git (it goes to Actions artifacts / local folders)
+data/*
+!data/.gitkeep
+combined/
+artifacts/
+*.jsonl
+*.csv
+!tests/*.csv
+screenshots/
+
+# python / tooling
+__pycache__/
+*.pyc
+.venv/
+venv/
+jbhifi_env/
+.pytest_cache/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+*.tmp

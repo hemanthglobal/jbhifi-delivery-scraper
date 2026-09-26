@@ -1,0 +1,289 @@
+# JB Hi-Fi delivery collector.
+#
+# SCHEDULED (cron is UTC; Adelaide = UTC+09:30 until 4 Oct 2026). v2.2.0
+# cycles run 12:00 -> 11:30 next day. The PRIMARY start for cycle 1 is a
+# MANUAL dispatch (~11:50 Sat); these crons are backups only:
+#   "35 2 26 9 *"  Sat 26 Sep 02:35 UTC = 12:05 ACST -> CYCLE 1 (2026-09-26),
+#   "45 2 26 9 *"  Sat 26 Sep 02:45 UTC = 12:15 ACST    the ASSIGNMENT dataset
+#   "15 2 27 9 *"  Sun 27 Sep 02:15 UTC = 11:45 ACST -> CYCLE 2 (2026-09-27),
+#                                                        replication/backup only
+# If cycle 1 is already running, a cron run queues behind it (concurrency
+# group) and becomes a no-op once cycle 1 has ended (date/end guard). A newer
+# queued run replaces an older queued one, so cycle 2 supersedes the backups.
+# Cron day/month fields repeat yearly; the date guard makes later years no-ops.
+#
+# MANUAL (Actions tab -> Run workflow):
+#   mode=test  : immediate pass over the study's test postcodes (~5 min)
+#   mode=smoke : production path (chunk job, seeding, per-pass export, FINAL
+#                export, artifacts) on the NEXT real slot, for the postcodes
+#                given (default 5022 5000 5700). Waits up to ~30 min for the slot.
+#   mode=full  : whole cycle as up to 5 chained chunk jobs (each < 6 h)
+#
+# Chunks (slot index ranges, see STUDIES in scraper.py):
+#   primary    1: 07:00-11:00  2: 11:30-16:00  3: 16:30-21:00
+#              4: 21:30-02:00  5: 03:00-06:00
+#   validation 1: 09:00  2: 13:00  3: 17:00  4: 21:00   (5 = no-op)
+name: jbhifi-collector
+
+on:
+  schedule:
+    - cron: "35 2 26 9 *"
+    - cron: "45 2 26 9 *"
+    - cron: "15 2 27 9 *"
+  workflow_dispatch:
+    inputs:
+      study:
+        description: "Which study"
+        type: choice
+        options: [primary, validation]
+        default: primary
+      mode:
+        description: "test = quick pass now; smoke = next real slot, few postcodes; full = whole cycle"
+        type: choice
+        options: [test, smoke, full]
+        default: test
+      cycle_date:
+        description: "Cycle date YYYY-MM-DD (blank = today's/next cycle, Adelaide time)"
+        type: string
+        default: ""
+      start_chunk:
+        description: "full: first chunk to run (1-5)"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+        default: "1"
+      end_chunk:
+        description: "full: last chunk to run (1-5)"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+        default: "5"
+      postcodes:
+        description: "Optional postcode subset, space-separated (smoke default: 5022 5000 5700)"
+        type: string
+        default: ""
+      export_name:
+        description: "Export folder name for full/smoke runs"
+        type: string
+        default: ""
+
+# Never two collector runs at once (that would double the load on the site).
+concurrency:
+  group: jbhifi-collector
+  cancel-in-progress: false
+
+permissions:
+  contents: write     # per-pass push to the `data` branch
+  actions: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: Australia/Adelaide
+    outputs:
+      study: ${{ steps.plan.outputs.study }}
+      mode: ${{ steps.plan.outputs.mode }}
+      cycle_date: ${{ steps.plan.outputs.cycle_date }}
+      run_id: ${{ steps.plan.outputs.run_id }}
+      start_chunk: ${{ steps.plan.outputs.start_chunk }}
+      end_chunk: ${{ steps.plan.outputs.end_chunk }}
+      slots: ${{ steps.plan.outputs.slots }}
+      postcodes: ${{ steps.plan.outputs.postcodes }}
+      export_name: ${{ steps.plan.outputs.export_name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Offline tests
+        run: python tests/test_scraper.py > offline_tests.log 2>&1 || (tail -40 offline_tests.log; exit 1)
+      - name: Plan this run
+        id: plan
+        shell: bash
+        run: |
+          set -e
+          EVENT="${{ github.event_name }}"
+          if [ "$EVENT" = "schedule" ]; then
+            STUDY=primary; MODE=full; START=1; END=5; PCS=""; SLOTS=""
+            case "${{ github.event.schedule }}" in
+              "35 2 26 9 *"|"45 2 26 9 *") DATE=2026-09-26; EXPORT=ASSIGNMENT_DATASET_cycle1 ;;
+              "15 2 27 9 *")               DATE=2026-09-27; EXPORT=BACKUP_replication_cycle2 ;;
+              *) echo "unknown schedule"; MODE=none; DATE=2000-01-01; EXPORT=none ;;
+            esac
+            # Date guard: only run on the evening/morning around this cycle.
+            TODAY=$(date +%Y-%m-%d)
+            PREV=$(date -d "$DATE -1 day" +%Y-%m-%d)
+            if [ "$TODAY" != "$DATE" ] && [ "$TODAY" != "$PREV" ]; then
+              echo "today $TODAY is not around cycle $DATE - nothing to do"; MODE=none
+            fi
+            # A cycle that is already over (e.g. the backup trigger queued
+            # behind a finished cycle 1) is a no-op.
+            LAST=$(python -c "import scraper,datetime as d; print(scraper.slots_for('primary', d.date.fromisoformat('$DATE'))[-1])")
+            if [ "$(date '+%Y-%m-%d %H:%M:%S')" \> "$LAST" ]; then
+              echo "cycle $DATE already ended at $LAST - nothing to do"; MODE=none
+            fi
+          else
+            STUDY="${{ inputs.study }}"; MODE="${{ inputs.mode }}"
+            START="${{ inputs.start_chunk }}"; END="${{ inputs.end_chunk }}"
+            PCS="${{ inputs.postcodes }}"; EXPORT="${{ inputs.export_name }}"; SLOTS=""
+            if [ -n "${{ inputs.cycle_date }}" ]; then DATE="${{ inputs.cycle_date }}"
+            else DATE=$(python scraper.py --study "$STUDY" --print-cycle-date); fi
+            if [ "$MODE" = "smoke" ]; then
+              [ -n "$PCS" ] || PCS="5022 5000 5700"
+              [ -n "$EXPORT" ] || EXPORT=SMOKE_TEST
+              # next slot at least 6 min away (runner setup time)
+              read DATE IDX < <(python -c "
+          import scraper, datetime as d
+          now = d.datetime.now() + d.timedelta(minutes=6)
+          for day in (now.date() - d.timedelta(days=1), now.date(), now.date() + d.timedelta(days=1)):
+              for i, s in enumerate(scraper.slots_for('$STUDY', day)):
+                  if s >= now:
+                      print(day, i); raise SystemExit
+          ")
+              SLOTS="$IDX-$IDX"; START=1; END=1
+            fi
+            [ -n "$EXPORT" ] || EXPORT=MANUAL_${STUDY}_cycle
+          fi
+          VER=$(python -c "import scraper; print(scraper.COLLECTOR_VERSION)")
+          RUN_ID="${STUDY}_${DATE//-/}_v${VER}_gha"
+          [ "$MODE" = "test" ] && RUN_ID="${STUDY}_test"
+          for kv in "study=$STUDY" "mode=$MODE" "cycle_date=$DATE" "run_id=$RUN_ID" \
+                    "start_chunk=$START" "end_chunk=$END" "slots=$SLOTS" \
+                    "postcodes=$PCS" "export_name=$EXPORT"; do
+            echo "$kv" >> "$GITHUB_OUTPUT"; echo "  $kv"
+          done
+          {
+            echo "### Plan"
+            echo "event=$EVENT schedule='${{ github.event.schedule }}'  Adelaide now: $(date)"
+            echo ""
+            echo "study=$STUDY mode=$MODE cycle_date=$DATE run_id=$RUN_ID chunks=$START-$END slots=$SLOTS postcodes='$PCS' export=$EXPORT"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  test:
+    needs: setup
+    if: ${{ needs.setup.outputs.mode == 'test' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 0
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      enabled: true
+
+  chunk1:
+    needs: setup
+    if: ${{ needs.setup.outputs.mode == 'full' || needs.setup.outputs.mode == 'smoke' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 1
+      cycle_date: ${{ needs.setup.outputs.cycle_date }}
+      run_id: ${{ needs.setup.outputs.run_id }}
+      slots: ${{ needs.setup.outputs.slots }}
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      export_name: ${{ needs.setup.outputs.export_name }}
+      enabled: ${{ fromJSON(needs.setup.outputs.start_chunk) <= 1 && fromJSON(needs.setup.outputs.end_chunk) >= 1 }}
+      max_wait_min: ${{ needs.setup.outputs.start_chunk == '1' && 75 || 300 }}
+
+  chunk2:
+    needs: [setup, chunk1]
+    if: ${{ !cancelled() && needs.setup.outputs.mode == 'full' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 2
+      cycle_date: ${{ needs.setup.outputs.cycle_date }}
+      run_id: ${{ needs.setup.outputs.run_id }}
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      export_name: ${{ needs.setup.outputs.export_name }}
+      enabled: ${{ fromJSON(needs.setup.outputs.start_chunk) <= 2 && fromJSON(needs.setup.outputs.end_chunk) >= 2 }}
+      upstream_stop: ${{ needs.chunk1.outputs.stop }}
+      max_wait_min: ${{ needs.setup.outputs.start_chunk == '2' && 75 || 300 }}
+
+  chunk3:
+    needs: [setup, chunk2]
+    if: ${{ !cancelled() && needs.setup.outputs.mode == 'full' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 3
+      cycle_date: ${{ needs.setup.outputs.cycle_date }}
+      run_id: ${{ needs.setup.outputs.run_id }}
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      export_name: ${{ needs.setup.outputs.export_name }}
+      enabled: ${{ fromJSON(needs.setup.outputs.start_chunk) <= 3 && fromJSON(needs.setup.outputs.end_chunk) >= 3 }}
+      upstream_stop: ${{ needs.chunk2.outputs.stop }}
+      max_wait_min: ${{ needs.setup.outputs.start_chunk == '3' && 75 || 300 }}
+
+  chunk4:
+    needs: [setup, chunk3]
+    if: ${{ !cancelled() && needs.setup.outputs.mode == 'full' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 4
+      cycle_date: ${{ needs.setup.outputs.cycle_date }}
+      run_id: ${{ needs.setup.outputs.run_id }}
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      export_name: ${{ needs.setup.outputs.export_name }}
+      enabled: ${{ fromJSON(needs.setup.outputs.start_chunk) <= 4 && fromJSON(needs.setup.outputs.end_chunk) >= 4 }}
+      upstream_stop: ${{ needs.chunk3.outputs.stop }}
+      max_wait_min: ${{ needs.setup.outputs.start_chunk == '4' && 75 || 300 }}
+
+  chunk5:
+    needs: [setup, chunk4]
+    if: ${{ !cancelled() && needs.setup.outputs.mode == 'full' }}
+    uses: ./.github/workflows/collect-chunk.yml
+    with:
+      study: ${{ needs.setup.outputs.study }}
+      chunk: 5
+      cycle_date: ${{ needs.setup.outputs.cycle_date }}
+      run_id: ${{ needs.setup.outputs.run_id }}
+      postcodes: ${{ needs.setup.outputs.postcodes }}
+      export_name: ${{ needs.setup.outputs.export_name }}
+      enabled: ${{ fromJSON(needs.setup.outputs.start_chunk) <= 5 && fromJSON(needs.setup.outputs.end_chunk) >= 5 }}
+      upstream_stop: ${{ needs.chunk4.outputs.stop }}
+      max_wait_min: ${{ needs.setup.outputs.start_chunk == '5' && 75 || 300 }}
+
+  final:
+    needs: [setup, test, chunk1, chunk2, chunk3, chunk4, chunk5]
+    if: ${{ !cancelled() && needs.setup.outputs.mode != 'none' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Australia/Adelaide
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Download every raw artifact from this run
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: results-*
+          path: artifacts
+      - name: Final export + data-quality summary
+        shell: bash
+        run: |
+          mkdir -p final
+          if ! { [ -d artifacts ] && find artifacts -name results.csv | grep -q .; }; then
+            echo "No results.csv produced by any job." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          if [ "${{ needs.setup.outputs.mode }}" = "test" ]; then
+            python combine.py artifacts --out final
+          else
+            python combine.py --export-cycle artifacts "${{ needs.setup.outputs.study }}" \
+              "${{ needs.setup.outputs.cycle_date }}" "${{ needs.setup.outputs.run_id }}" \
+              "${{ needs.setup.outputs.export_name }}" final
+            rm -rf final/_merged_*
+          fi
+          for f in $(find final -name data_quality.md); do
+            echo "::group::$f"; cat "$f"; echo "::endgroup::"; cat "$f" >> "$GITHUB_STEP_SUMMARY"
+          done
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: ${{ needs.setup.outputs.export_name }}-${{ needs.setup.outputs.cycle_date }}-FINAL-attempt${{ github.run_attempt }}
+          path: final/
+          if-no-files-found: warn
+          retention-days: 30

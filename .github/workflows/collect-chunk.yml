@@ -1,0 +1,136 @@
+# Reusable job: run ONE chunk of a cycle (or the quick test pass) and upload
+# its outputs as artifacts. Called by scraper.yml - not run directly.
+#
+# Each chunk first downloads the earlier chunks' artifacts from the SAME
+# workflow run and seeds its results.csv / raw JSONL with that cycle's rows
+# (copied, never modified), so the export it uploads covers the cycle so far.
+name: collect-chunk
+
+on:
+  workflow_call:
+    inputs:
+      study:          { type: string,  required: true }
+      chunk:          { type: number,  required: true }   # 0 = test pass
+      cycle_date:     { type: string,  required: false, default: "" }
+      run_id:         { type: string,  required: false, default: "" }
+      slots:          { type: string,  required: false, default: "" }  # "A-B" overrides the chunk's slots
+      postcodes:      { type: string,  required: false, default: "" }  # space-separated subset
+      export_name:    { type: string,  required: false, default: "" }
+      enabled:        { type: boolean, required: true }
+      upstream_stop:  { type: string,  required: false, default: "false" }
+      max_wait_min:   { type: number,  required: false, default: 300 }
+    outputs:
+      stop:
+        description: "true when the site blocked / rate limited us - later chunks must not run"
+        value: ${{ jobs.collect.outputs.stop }}
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    # GitHub's hard limit is 360 min; each chunk is designed for <= ~5.3 h.
+    timeout-minutes: 355
+    env:
+      TZ: Australia/Adelaide
+      PYTHONUNBUFFERED: "1"
+      # after every pass: push raw files + export to the repo's `data` branch
+      JB_PASS_HOOK: bash .github/scripts/push_pass.sh
+      GH_TOKEN: ${{ github.token }}
+    outputs:
+      stop: ${{ steps.run.outputs.stop }}
+    steps:
+      - name: Skip (not selected, or an earlier chunk was blocked)
+        if: ${{ !inputs.enabled || inputs.upstream_stop == 'true' }}
+        run: |
+          echo "enabled=${{ inputs.enabled }} upstream_stop=${{ inputs.upstream_stop }} - nothing to do"
+
+      - uses: actions/checkout@v4
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+
+      - uses: actions/setup-python@v5
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python dependencies
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+        run: pip install -r requirements.txt
+
+      - name: Cache Playwright browsers
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install headless Chromium
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+        run: python -m playwright install --with-deps chromium
+
+      - name: Download earlier chunks of this cycle (same workflow run)
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' && inputs.chunk > 0 }}
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: results-${{ inputs.study }}-*
+          path: prior
+
+      - name: Seed this chunk with the cycle's earlier rows
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' && inputs.chunk > 0 }}
+        run: |
+          if [ -d prior ]; then
+            python combine.py --seed prior "data/${{ inputs.study }}/${{ inputs.run_id }}" "${{ inputs.run_id }}"
+          else
+            echo "no earlier chunk artifacts - starting the cycle fresh"
+          fi
+
+      - name: Run collector
+        id: run
+        if: ${{ inputs.enabled && inputs.upstream_stop != 'true' }}
+        shell: bash
+        run: |
+          set +e
+          if [ "${{ inputs.chunk }}" = "0" ]; then
+            ARGS="--test --out-dir data/${{ inputs.study }}/test"
+          else
+            if [ -n "${{ inputs.slots }}" ]; then
+              ARGS="--slots ${{ inputs.slots }}"
+            else
+              ARGS="--chunk ${{ inputs.chunk }}"
+            fi
+            ARGS="$ARGS --max-wait-min ${{ inputs.max_wait_min }} --cycle-date ${{ inputs.cycle_date }} --out-dir data/${{ inputs.study }}/${{ inputs.run_id }}"
+            if [ -n "${{ inputs.export_name }}" ]; then ARGS="$ARGS --export-names ${{ inputs.export_name }}"; fi
+          fi
+          if [ -n "${{ inputs.postcodes }}" ]; then ARGS="$ARGS --only ${{ inputs.postcodes }}"; fi
+          echo "python scraper.py --study ${{ inputs.study }} $ARGS"
+          python scraper.py --study ${{ inputs.study }} $ARGS
+          code=$?
+          echo "collector exit code: $code"
+          if [ "$code" = "3" ]; then
+            echo "stop=true" >> "$GITHUB_OUTPUT"
+            echo "::error::Site blocked or rate-limited automated access. Stopped; later chunks will not run."
+          else
+            echo "stop=false" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "$code" = "4" ]; then
+            echo "::error::Chunk started too early to wait for its first slot (see log). Nothing collected."
+          fi
+          exit $code
+
+      - name: Upload raw outputs (results.csv, raw JSONL, failed_postcodes.csv, checkpoint.json, scraper.log, screenshots)
+        if: ${{ always() && inputs.enabled && inputs.upstream_stop != 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ inputs.study }}-chunk${{ inputs.chunk }}-attempt${{ github.run_attempt }}
+          path: data/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload analysis export (cycle so far)
+        if: ${{ always() && inputs.enabled && inputs.upstream_stop != 'true' && inputs.export_name != '' && inputs.chunk > 0 }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.export_name }}-${{ inputs.cycle_date }}-after-chunk${{ inputs.chunk }}-attempt${{ github.run_attempt }}
+          path: data/${{ inputs.study }}/${{ inputs.run_id }}/${{ inputs.export_name }}_*/
+          if-no-files-found: warn
+          retention-days: 30

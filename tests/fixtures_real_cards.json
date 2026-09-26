@@ -1,0 +1,293 @@
+[
+ {
+  "source": "jbhifi_validation/validation_raw_20260922_233610.jsonl",
+  "postcode": "5022",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 24 September",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Choose a 2 hour window",
+    "price": "$11.99",
+    "carrier": "Scheduled",
+    "carrier_alt": "Uber logo",
+    "carrier_img_src": null,
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "jbhifi_validation/validation_raw_20260922_233610.jsonl",
+  "postcode": "5290",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 24 September",
+    "price": "$9.99",
+    "carrier": "Express",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": null,
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered by 29 September",
+    "price": "$9.99",
+    "carrier": "Standard",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": null,
+    "tags": [],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered by 29 September",
+    "price": "$9.99",
+    "carrier": "Standard",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": null,
+    "tags": [],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "jbhifi_validation/validation_raw_20260922_233610.jsonl",
+  "postcode": "2000",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered tomorrow",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Choose a 2 hour window",
+    "price": "$11.99",
+    "carrier": "Scheduled",
+    "carrier_alt": "Uber logo",
+    "carrier_img_src": null,
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "v2_states_20260926_104722/states_raw.jsonl",
+  "postcode": "6030",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 28 September",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": null,
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": true
+   },
+   {
+    "promise": "Delivered within 90 minutes",
+    "price": "$11.99",
+    "carrier": "ASAP",
+    "carrier_alt": null,
+    "carrier_img_src": null,
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": true
+   }
+  ]
+ },
+ {
+  "source": "v2_validation_20260926_104546/raw_observations.jsonl",
+  "postcode": "5022",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 28 September",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-auspost.png?v=1716965716",
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered within 90 minutes",
+    "price": "$11.99",
+    "carrier": "ASAP",
+    "carrier_alt": "Uber logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-uber.png?v=1716965772",
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "v2_validation_unavail_20260926_104840/raw_observations.jsonl",
+  "postcode": "5290",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 29 September",
+    "price": "$9.99",
+    "carrier": "Express",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-TGE.png?v=1716965760",
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered by 2 October",
+    "price": "$9.99",
+    "carrier": "Standard",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-auspost.png?v=1716965716",
+    "tags": [],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered by 2 October",
+    "price": "$9.99",
+    "carrier": "Standard",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-TGE.png?v=1716965760",
+    "tags": [],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "tmp0fdgwshf/raw.jsonl",
+  "postcode": "5022",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered tomorrow",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "tmp44ol2wui/raw.jsonl",
+  "postcode": "5000",
+  "product_url": "https://www.jbhifi.com.au/products/nintendo-switch-2-console-mario-kart-world-bundle-1",
+  "options": [
+   {
+    "promise": "Delivered within 5 business days after the official release date.",
+    "price": "$8.99",
+    "carrier": "Standard",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-auspost.png?v=1716965716",
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered within 3 business days after the official release date.",
+    "price": "$12.99",
+    "carrier": "Express",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-TGE.png?v=1716965760",
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered within 5 business days after the official release date.",
+    "price": "$14.99",
+    "carrier": "Standard",
+    "carrier_alt": "Toll Priority logo",
+    "carrier_img_src": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/carriericon-TGE.png?v=1716965760",
+    "tags": [],
+    "used_fallback": false
+   }
+  ]
+ },
+ {
+  "source": "tmp44ol2wui/raw.jsonl",
+  "postcode": "5000",
+  "product_url": "https://www.jbhifi.com.au/products/sony-65-bravia-6-oled-4k-hdr-google-tv-with-gemini-2026",
+  "options": [
+   {
+    "promise": "Delivery available from 27 September",
+    "price": "$59.00",
+    "carrier": "Scheduled",
+    "carrier_alt": null,
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAP + FAST"
+    ],
+    "used_fallback": true
+   }
+  ]
+ },
+ {
+  "source": "tmpqgotw3_k/raw.jsonl",
+  "postcode": "2000",
+  "product_url": "https://www.jbhifi.com.au/products/samsung-galaxy-s26-5g-256gb-cobalt-violet",
+  "options": [
+   {
+    "promise": "Delivered by 28 September",
+    "price": "$6.99",
+    "carrier": "Courier",
+    "carrier_alt": "Australia Post logo",
+    "carrier_img_src": null,
+    "tags": [
+     "CHEAPEST"
+    ],
+    "used_fallback": false
+   },
+   {
+    "promise": "Delivered within 2 hours",
+    "price": "$11.99",
+    "carrier": "ASAP",
+    "carrier_alt": "Uber logo",
+    "carrier_img_src": null,
+    "tags": [
+     "FASTEST"
+    ],
+    "used_fallback": false
+   }
+  ]
+ }
+]
