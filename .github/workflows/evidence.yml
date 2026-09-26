@@ -1,0 +1,100 @@
+# Evidence bundle - packages a finished collector run's artifacts into ONE
+# artifact. Copy only; never contacts JB Hi-Fi; never changes collection.
+#
+# Automatic: runs when any "jbhifi-collector" run completes, but only
+# bundles if that run produced the CYCLE 1 final artifact
+# (ASSIGNMENT_DATASET_cycle1-2026-09-26-FINAL-*). Cycle 2, smoke and test
+# runs are skipped, so Cycle 2 can never enter this bundle.
+# Manual: Actions -> evidence-bundle -> Run workflow (e.g. to rebuild).
+name: evidence-bundle
+
+on:
+  workflow_run:
+    workflows: [jbhifi-collector]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Collector run id to bundle"
+        required: true
+        default: "36210992016"
+      final_pattern:
+        description: "FINAL artifact name pattern"
+        default: "ASSIGNMENT_DATASET_cycle1-2026-09-26-FINAL-*"
+      bundle_name:
+        description: "Bundle / artifact name"
+        default: "ASSIGNMENT_EVIDENCE_cycle1-2026-09-26"
+
+# Separate from the collector's group, so it never waits behind Cycle 2.
+concurrency:
+  group: evidence-bundle
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN: ${{ github.event.workflow_run.id || inputs.source_run_id }}
+      FINAL_PATTERN: ${{ inputs.final_pattern || 'ASSIGNMENT_DATASET_cycle1-2026-09-26-FINAL-*' }}
+      BUNDLE: ${{ inputs.bundle_name || 'ASSIGNMENT_EVIDENCE_cycle1-2026-09-26' }}
+    steps:
+      - name: Is this the Cycle 1 run?
+        id: gate
+        shell: bash
+        run: |
+          names=$(gh api "repos/${{ github.repository }}/actions/runs/$SOURCE_RUN/artifacts?per_page=100" --jq '.artifacts[].name')
+          echo "artifacts of run $SOURCE_RUN:"; echo "$names"
+          prefix="${FINAL_PATTERN%\*}"
+          if echo "$names" | grep -q "^${prefix}"; then echo "go=true" >> "$GITHUB_OUTPUT"
+          else echo "go=false" >> "$GITHUB_OUTPUT"; echo "No '$FINAL_PATTERN' artifact - not the Cycle 1 run. Nothing to bundle."; fi
+          info=$(gh api "repos/${{ github.repository }}/actions/runs/$SOURCE_RUN" --jq '"\(.html_url) \(.conclusion) \(.head_sha)"')
+          read url concl sha <<< "$info"
+          echo "url=$url" >> "$GITHUB_OUTPUT"; echo "conclusion=$concl" >> "$GITHUB_OUTPUT"; echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          ref: ${{ steps.gate.outputs.sha }}
+          path: src_at_run
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          path: tools
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == 'true'
+        with: { python-version: "3.12" }
+
+      - name: Download the Cycle 1 run's artifacts (final, exports, raw chunks + screenshots)
+        if: steps.gate.outputs.go == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ env.SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: downloaded
+
+      - name: Build bundle (copy only) + checksums
+        if: steps.gate.outputs.go == 'true'
+        shell: bash
+        run: |
+          SHA=$(sha256sum src_at_run/scraper.py | cut -d' ' -f1)
+          mkdir -p bundle
+          python tools/.github/scripts/bundle_evidence.py downloaded bundle "$BUNDLE" \
+            "$SOURCE_RUN" "${{ steps.gate.outputs.url }}" "${{ steps.gate.outputs.conclusion }}" \
+            "${{ steps.gate.outputs.sha }}" "$SHA"
+          cat "bundle/$BUNDLE/README_EVIDENCE.md" >> "$GITHUB_STEP_SUMMARY"
+          du -sh "bundle/$BUNDLE"
+
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.go == 'true'
+        with:
+          name: ${{ env.BUNDLE }}
+          path: bundle/
+          if-no-files-found: error
+          retention-days: 90
