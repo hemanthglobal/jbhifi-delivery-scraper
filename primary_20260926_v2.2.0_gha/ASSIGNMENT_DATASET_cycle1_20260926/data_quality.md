@@ -1,4 +1,4 @@
-STATUS: IN PROGRESS - 40 of 40 slots due so far (last 2026-09-27 11:30). Snapshot 2026-09-27 11:49:58. Refresh after the next pass.
+STATUS: COMPLETE - cycle 2026-09-26 finished; all 40 slots due. Exported 2026-09-27 11:50:00 (collector v2.2.0, run primary_20260926_v2.2.0_gha)
 
 # Data quality: primary study, cycle 2026-09-26 (primary_20260926_v2.2.0_gha)
 
@@ -16,7 +16,7 @@ STATUS: IN PROGRESS - 40 of 40 slots due so far (last 2026-09-27 11:30). Snapsho
 | http_errors (5xx/403/429) | 0 |
 | timeouts | 0 |
 | rows_needing_retry | 10 |
-| status | IN PROGRESS - 40 of 40 slots due so far (last 2026-09-27 11:30). Snapshot 2026-09-27 11:49:58. Refresh after the next pass. |
+| status | COMPLETE - cycle 2026-09-26 finished; all 40 slots due. Exported 2026-09-27 11:50:00 (collector v2.2.0, run primary_20260926_v2.2.0_gha) |
 | run_id | primary_20260926_v2.2.0_gha |
 
 ## states
