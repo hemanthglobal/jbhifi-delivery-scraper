@@ -1081,3 +1081,5 @@
 [2026-09-28 02:20:07]   Processed: 343 / 343 | Valid: 308 | No store: 35 | Failed: 0 | Skipped: 0 | Elapsed: 05:00:48
 [2026-09-28 02:20:07] --- pass complete in 20.1 min ---
 [2026-09-28 02:20:07]   export -> BACKUP_replication_cycle2_20260927: 686 rows, coverage 686/1274 (53.8%), errors 0
+[2026-09-28 02:20:08]   pass hook exit 0: pushed primary_20260927_v2.2.0_gha slot 2026-09-28 02:00
+[2026-09-28 02:20:08]   export -> BACKUP_replication_cycle2_20260927: 686 rows, coverage 686/1274 (53.8%), errors 0
