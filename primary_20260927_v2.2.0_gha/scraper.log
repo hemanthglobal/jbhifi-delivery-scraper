@@ -1,0 +1,17 @@
+[2026-09-27 17:43:12] collector v2.2.0  run primary_20260927_v2.2.0_gha  study primary
+[2026-09-27 17:43:12] clock  : Australia/Adelaide (+0930)
+[2026-09-27 17:43:12] design : 49 postcode(s) x 1 product(s) x 9 slot(s) = 441 observation(s)
+[2026-09-27 17:43:12] out    : data/primary/primary_20260927_v2.2.0_gha  (resume: 0 already recorded)
+[2026-09-27 17:43:12] manifest: data/primary/primary_20260927_v2.2.0_gha/manifest_primary_20260927_v2.2.0_gha_174312.json
+[2026-09-27 17:43:12] ##### CYCLE 1/1: Sunday 27 Sep 2026 run primary_20260927_v2.2.0_gha #####
+[2026-09-27 17:43:12] cycle 2026-09-27 (primary): running slot index(es) 0-8: 27 Sep 12:00 .. 27 Sep 16:00
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 12:00 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 12:30 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 13:00 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 13:30 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 14:00 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 14:30 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 15:00 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 15:30 - already past (now 17:43:12)
+[2026-09-27 17:43:12] SKIPPED slot 27 Sep 16:00 - already past (now 17:43:12)
+[2026-09-27 17:43:12]   !! export failed (collection continues): FileNotFoundError: [Errno 2] No such file or directory: 'data/primary/primary_20260927_v2.2.0_gha/results.csv'
