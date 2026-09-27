@@ -478,3 +478,164 @@
 [2026-09-27 19:19:02]   Processed: 147 / 490 | Valid: 132 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:35:20
 [2026-09-27 19:19:02] --- pass complete in 19.0 min ---
 [2026-09-27 19:19:02]   export -> BACKUP_replication_cycle2_20260927: 147 rows, coverage 147/735 (20.0%), errors 0
+[2026-09-27 19:19:04]   pass hook exit 0: pushed primary_20260927_v2.2.0_gha slot 2026-09-27 19:00
+[2026-09-27 19:19:04] waiting 10.9 min for slot 27 Sep 19:30
+[2026-09-27 19:30:00] === SLOT 15 2026-09-27 19:30 ===
+[2026-09-27 19:30:00] --- pass: 49 postcode(s) x 1 product(s) = 49 observation(s), slot 2026-09-27 19:30 ---
+[2026-09-27 19:30:00] 2000 Sydney [s26] ...
+[2026-09-27 19:30:15]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:30:15]   Processed: 148 / 490 | Valid: 133 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:46:33
+[2026-09-27 19:30:22] 2060 North Sydney [s26] ...
+[2026-09-27 19:30:37]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:30:37]   Processed: 149 / 490 | Valid: 134 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:46:55
+[2026-09-27 19:30:43] 2170 Liverpool [s26] ...
+[2026-09-27 19:31:00]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:31:00]   Processed: 150 / 490 | Valid: 135 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:47:17
+[2026-09-27 19:31:08] 2750 Penrith [s26] ...
+[2026-09-27 19:31:24]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:31:24]   Processed: 151 / 490 | Valid: 136 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:47:42
+[2026-09-27 19:31:30] 2300 Newcastle [s26] ...
+[2026-09-27 19:31:30]   attempt 1 failed [http_5xx]: HTTP 503 on product page
+[2026-09-27 19:31:30]   retrying in 20s
+[2026-09-27 19:32:07]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 2 October' $6.99
+[2026-09-27 19:32:07]   Processed: 152 / 490 | Valid: 137 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:48:25
+[2026-09-27 19:32:14] 2650 Wagga Wagga [s26] ...
+[2026-09-27 19:32:31]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:32:31]   Processed: 153 / 490 | Valid: 138 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:48:49
+[2026-09-27 19:32:41] 2480 Lismore [s26] ...
+[2026-09-27 19:32:56]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:32:56]   Processed: 154 / 490 | Valid: 139 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:49:14
+[2026-09-27 19:33:05] 3000 Melbourne [s26] ...
+[2026-09-27 19:33:20]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:33:20]   Processed: 155 / 490 | Valid: 140 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:49:38
+[2026-09-27 19:33:26] 3121 Richmond [s26] ...
+[2026-09-27 19:33:26]   attempt 1 failed [http_5xx]: HTTP 503 on product page
+[2026-09-27 19:33:26]   retrying in 20s
+[2026-09-27 19:34:03]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:34:03]   Processed: 156 / 490 | Valid: 141 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:50:21
+[2026-09-27 19:34:11] 3030 Point Cook [s26] ...
+[2026-09-27 19:34:26]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:34:26]   Processed: 157 / 490 | Valid: 142 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:50:44
+[2026-09-27 19:34:35] 3175 Dandenong [s26] ...
+[2026-09-27 19:34:52]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:34:52]   Processed: 158 / 490 | Valid: 143 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:51:09
+[2026-09-27 19:34:59] 3220 Geelong [s26] ...
+[2026-09-27 19:34:59]   attempt 1 failed [http_5xx]: HTTP 503 on product page
+[2026-09-27 19:34:59]   retrying in 20s
+[2026-09-27 19:35:35]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:35:35]   Processed: 159 / 490 | Valid: 144 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:51:53
+[2026-09-27 19:35:44] 3550 Bendigo [s26] ...
+[2026-09-27 19:35:59]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:35:59]   Processed: 160 / 490 | Valid: 145 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:52:17
+[2026-09-27 19:36:09] 3350 Ballarat [s26] ...
+[2026-09-27 19:36:25]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 1 October' $5.99
+[2026-09-27 19:36:25]   Processed: 161 / 490 | Valid: 146 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:52:43
+[2026-09-27 19:36:34] 4000 Brisbane City [s26] ...
+[2026-09-27 19:36:53]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:36:53]   Processed: 162 / 490 | Valid: 147 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:53:11
+[2026-09-27 19:37:01] 4006 Fortitude Valley [s26] ...
+[2026-09-27 19:37:01]   attempt 1 failed [http_5xx]: HTTP 503 on product page
+[2026-09-27 19:37:01]   retrying in 20s
+[2026-09-27 19:37:37]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:37:37]   Processed: 163 / 490 | Valid: 148 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:53:55
+[2026-09-27 19:37:43] 4300 Springfield [s26] ...
+[2026-09-27 19:37:58]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:37:58]   Processed: 164 / 490 | Valid: 149 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:54:16
+[2026-09-27 19:38:08] 4178 Wynnum [s26] ...
+[2026-09-27 19:38:24]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:38:24]   Processed: 165 / 490 | Valid: 150 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:54:42
+[2026-09-27 19:38:30] 4350 Toowoomba City [s26] ...
+[2026-09-27 19:38:46]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:38:46]   Processed: 166 / 490 | Valid: 151 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:55:04
+[2026-09-27 19:38:54] 4740 Mackay [s26] ...
+[2026-09-27 19:39:09]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:39:09]   Processed: 167 / 490 | Valid: 152 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:55:27
+[2026-09-27 19:39:18] 4870 Cairns [s26] ...
+[2026-09-27 19:39:34]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:39:34]   Processed: 168 / 490 | Valid: 153 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:55:51
+[2026-09-27 19:39:40] 5000 Adelaide [s26] ...
+[2026-09-27 19:39:56]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:39:56]   Processed: 169 / 490 | Valid: 154 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:56:14
+[2026-09-27 19:40:05] 5067 Norwood [s26] ...
+[2026-09-27 19:40:20]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:40:20]   Processed: 170 / 490 | Valid: 155 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:56:38
+[2026-09-27 19:40:28] 5034 Millswood [s26] ...
+[2026-09-27 19:40:44]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:40:44]   Processed: 171 / 490 | Valid: 156 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:57:02
+[2026-09-27 19:40:49] 5022 Grange [s26] ...
+[2026-09-27 19:41:07]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:41:07]   Processed: 172 / 490 | Valid: 157 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:57:25
+[2026-09-27 19:41:12] 5108 Salisbury [s26] ...
+[2026-09-27 19:41:28]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:41:28]   Processed: 173 / 490 | Valid: 158 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:57:46
+[2026-09-27 19:41:36] 5162 Morphett Vale [s26] ...
+[2026-09-27 19:41:52]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:41:52]   Processed: 174 / 490 | Valid: 159 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:58:09
+[2026-09-27 19:41:59] 5095 Mawson Lakes [s26] ...
+[2026-09-27 19:42:14]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:42:14]   Processed: 175 / 490 | Valid: 160 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:58:32
+[2026-09-27 19:42:20] 5114 Smithfield [s26] ...
+[2026-09-27 19:42:36]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:42:36]   Processed: 176 / 490 | Valid: 161 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:58:53
+[2026-09-27 19:42:45] 5251 Mount Barker [s26] ...
+[2026-09-27 19:43:00]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:43:00]   Processed: 177 / 490 | Valid: 162 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:59:18
+[2026-09-27 19:43:10] 5290 Mount Gambier [s26] ...
+[2026-09-27 19:43:25]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 29 September' $9.99 | notes: No on-demand option offered; price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:43:25]   Processed: 178 / 490 | Valid: 163 | No store: 15 | Failed: 0 | Skipped: 0 | Elapsed: 01:59:43
+[2026-09-27 19:43:33] 5700 Port Augusta [s26] ...
+[2026-09-27 19:43:45]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-27 19:43:45]   Processed: 179 / 490 | Valid: 163 | No store: 16 | Failed: 0 | Skipped: 0 | Elapsed: 02:00:03
+[2026-09-27 19:43:51] 5606 Port Lincoln [s26] ...
+[2026-09-27 19:44:04]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-27 19:44:04]   Processed: 180 / 490 | Valid: 163 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:00:22
+[2026-09-27 19:44:13] 6000 Perth [s26] ...
+[2026-09-27 19:44:29]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:44:29]   Processed: 181 / 490 | Valid: 164 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:00:47
+[2026-09-27 19:44:38] 6008 Subiaco [s26] ...
+[2026-09-27 19:44:53]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:44:53]   Processed: 182 / 490 | Valid: 165 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:01:11
+[2026-09-27 19:44:59] 6164 Success [s26] ...
+[2026-09-27 19:45:14]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:45:14]   Processed: 183 / 490 | Valid: 166 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:01:32
+[2026-09-27 19:45:24] 6030 Clarkson [s26] ...
+[2026-09-27 19:45:39]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 29 September' $6.99
+[2026-09-27 19:45:39]   Processed: 184 / 490 | Valid: 167 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:01:57
+[2026-09-27 19:45:47] 6230 Bunbury [s26] ...
+[2026-09-27 19:46:02]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:46:02]   Processed: 185 / 490 | Valid: 168 | No store: 17 | Failed: 0 | Skipped: 0 | Elapsed: 02:02:20
+[2026-09-27 19:46:12] 6430 Kalgoorlie [s26] ...
+[2026-09-27 19:46:24]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-27 19:46:24]   Processed: 186 / 490 | Valid: 168 | No store: 18 | Failed: 0 | Skipped: 0 | Elapsed: 02:02:42
+[2026-09-27 19:46:30] 6530 Geraldton [s26] ...
+[2026-09-27 19:46:42]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-27 19:46:42]   Processed: 187 / 490 | Valid: 168 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:03:00
+[2026-09-27 19:46:50] 7000 Hobart [s26] ...
+[2026-09-27 19:47:05]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 30 September' $6.99
+[2026-09-27 19:47:05]   Processed: 188 / 490 | Valid: 169 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:03:23
+[2026-09-27 19:47:14] 7010 Glenorchy [s26] ...
+[2026-09-27 19:47:30]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-27 19:47:30]   Processed: 189 / 490 | Valid: 170 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:03:48
+[2026-09-27 19:47:39] 7250 Launceston [s26] ...
+[2026-09-27 19:47:54]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 30 September' $6.99
+[2026-09-27 19:47:54]   Processed: 190 / 490 | Valid: 171 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:04:12
+[2026-09-27 19:47:59] 7320 Burnie [s26] ...
+[2026-09-27 19:48:22]   ON_DEMAND_UNAVAILABLE | promise='' uber=$ | standard='Delivered by 30 September' $6.99 | notes: No on-demand option offered
+[2026-09-27 19:48:22]   Processed: 191 / 490 | Valid: 172 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:04:40
+[2026-09-27 19:48:32] 2601 Canberra [s26] ...
+[2026-09-27 19:48:48]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-27 19:48:48]   Processed: 192 / 490 | Valid: 173 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:05:06
+[2026-09-27 19:48:53] 2900 Greenway [s26] ...
+[2026-09-27 19:49:09]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 1 October' $6.99
+[2026-09-27 19:49:09]   Processed: 193 / 490 | Valid: 174 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:05:27
+[2026-09-27 19:49:14] 0800 Darwin City [s26] ...
+[2026-09-27 19:49:30]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:49:30]   Processed: 194 / 490 | Valid: 175 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:05:47
+[2026-09-27 19:49:39] 0810 Casuarina [s26] ...
+[2026-09-27 19:49:54]   ON_DEMAND_SCHEDULED | promise='Choose a 2 hour window' uber=$11.99 | standard='Delivered by 30 September' $9.99 | notes: price tie - 3 non-Uber options at $9.99, first in DOM order used
+[2026-09-27 19:49:54]   Processed: 195 / 490 | Valid: 176 | No store: 19 | Failed: 0 | Skipped: 0 | Elapsed: 02:06:12
+[2026-09-27 19:50:00] 0870 Alice Springs [s26] ...
+[2026-09-27 19:50:13]   NO_STORE_REPORTED | promise='' uber=$ | standard='' $ | notes: No available stores found for the given location.
+[2026-09-27 19:50:13]   Processed: 196 / 490 | Valid: 176 | No store: 20 | Failed: 0 | Skipped: 0 | Elapsed: 02:06:31
+[2026-09-27 19:50:13] --- pass complete in 20.2 min ---
+[2026-09-27 19:50:13]   export -> BACKUP_replication_cycle2_20260927: 196 rows, coverage 196/784 (25.0%), errors 0
