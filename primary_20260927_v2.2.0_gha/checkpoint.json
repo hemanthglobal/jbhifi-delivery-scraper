@@ -3,38 +3,32 @@
   "run_id": "primary_20260927_v2.2.0_gha",
   "study": "primary",
   "status": "running",
-  "updated": "2026-09-28 02:20:07",
-  "started": "2026-09-27 21:19:18",
-  "elapsed": "05:00:48",
-  "planned_observations": 343,
+  "updated": "2026-09-28 03:19:12",
+  "started": "2026-09-28 02:20:48",
+  "elapsed": "00:58:24",
+  "planned_observations": 245,
   "counts": {
-    "processed": 343,
-    "valid": 308,
-    "no_store": 35,
+    "processed": 49,
+    "valid": 44,
+    "no_store": 5,
     "failed": 0,
     "skipped_resume": 0,
     "skipped_aborted": 0,
     "skipped_slots": 0
   },
   "states": {
-    "ON_DEMAND_SCHEDULED": 273,
-    "ON_DEMAND_UNAVAILABLE": 35,
-    "NO_STORE_REPORTED": 35
+    "ON_DEMAND_SCHEDULED": 39,
+    "ON_DEMAND_UNAVAILABLE": 5,
+    "NO_STORE_REPORTED": 5
   },
   "slots_completed": [
-    "2026-09-27 21:30",
-    "2026-09-27 22:00",
-    "2026-09-27 22:30",
-    "2026-09-27 23:00",
-    "2026-09-28 00:00",
-    "2026-09-28 01:00",
-    "2026-09-28 02:00"
+    "2026-09-28 03:00"
   ],
   "last_observation": {
-    "slot": "2026-09-28 02:00",
+    "slot": "2026-09-28 03:00",
     "product_key": "s26",
     "postcode": "0870",
     "observation_state": "NO_STORE_REPORTED"
   },
-  "completed_keys": 686
+  "completed_keys": 735
 }
